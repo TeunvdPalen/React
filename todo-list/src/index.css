@@ -1,0 +1,38 @@
+.TodoListContainer {
+  width: 50%;
+  margin: 20px auto;
+}
+
+.TodoInput {
+  margin: 10px 0;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+  padding: 5px;
+  width: 100%;
+}
+
+.TodoItem {
+  border: 1px solid lightgray;
+  border-bottom: none;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+}
+.TodoItem:last-child {
+  border-bottom: 1px solid lightgray;  
+}
+
+.TodoItem span {
+  margin-left: 10px;
+}
+
+.TodoItem button {
+  justify-self: end;
+}
+
+.TodoFooter {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}

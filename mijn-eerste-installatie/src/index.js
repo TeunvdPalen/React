@@ -7,3 +7,12 @@ ReactDOM.render(
 	<Welcome />,	
 	document.getElementById('root')
 )
+
+import ReactDOM from 'react-dom';
+import Counter from './Counter'
+
+ReactDOM.render(<div>
+	<Counter />
+	<Counter />
+	<Counter />
+</div>)

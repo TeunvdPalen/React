@@ -1,11 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom';
 import './index.css';
-import TodoListContainer from './TodoListContainer';
+import TodoListContainer from './TodoContainer';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <TodoListContainer />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <TodoListContainer />, document.getElementById('root')
 );

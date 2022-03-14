@@ -11,9 +11,9 @@ class Bier extends Component {
 				{this.props.bierLijst.map((bier) => {
 					return (
 					<div>
-						<h1>{bier.bier}</h1>
+						<h1>{bier.bier} <button onClick={this.props.delete}>Verwijder Bier</button></h1>
 						<p>Brouwerij: {bier.brouwerij}</p>
-						{this.props.toon && <p>Alcholpercentage {bier.alchol}</p>}
+						{this.props.toon && <p>Alcholpercentage: <button>-</button> {bier.alchol} <button>+</button> </p>}
 					</div>
 					)
 				})}

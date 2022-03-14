@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from './Header'
 import Bier from './Bier'
 import Footer from './Footer'
+import Form from "./Form";
 
 class App extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class App extends Component {
         alchol: 5
       },
     ],
-    toon: false
+    toon: false,
   }
 
 
@@ -36,12 +37,32 @@ class App extends Component {
     });
   }
 
+  bier_toevoegen = (naam, brouwerij, alchol) => {
+    this.setState(({bieren}) => {
+      return { 
+        bieren: [...bieren, {
+          bier: naam,
+          brouwerij: brouwerij,
+          alchol: alchol
+        }],       
+      };
+    });
+  }
+
+  // delete_bier = () => {
+  //   this.setState({bieren}) => {
+
+  //   }
+  // }
+
   render() { 
     return ( 
       <div className="container">
         <Header toggle={this.toggle_alcoholpercentage} />
         <hr />
-        <Bier bierLijst={this.state.bieren} toon={this.state.toon} />
+        <Form toevoegen={this.bier_toevoegen} />
+        <hr />
+        <Bier bierLijst={this.state.bieren} toon={this.state.toon} delete={this.delete_bier} />
         <hr />
         <Footer />
       </div>

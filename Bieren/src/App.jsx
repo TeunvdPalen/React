@@ -43,7 +43,7 @@ class App extends Component {
         bieren: [...bieren, {
           bier: naam,
           brouwerij: brouwerij,
-          alchol: alchol
+          alchol: parseInt(alchol)
         }],       
       };
     });

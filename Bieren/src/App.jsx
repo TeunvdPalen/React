@@ -27,7 +27,7 @@ class App extends Component {
         alchol: 5
       },
     ],
-    toon: false,
+    toon: true,
   }
 
 
@@ -49,11 +49,45 @@ class App extends Component {
     });
   }
 
-  // delete_bier = () => {
-  //   this.setState({bieren}) => {
+  delete_bier = (bier) => {
+    console.log(bier)
+    this.setState((state) => {
+      let index = state.bieren.indexOf(bier)
+      const newlist = state.bieren.filter((item, i) => i !== index )
+      return {
+        bieren: newlist
+      }
+    })
+  }
 
-  //   }
-  // }
+  delete_all = () => {
+    console.log('delete')
+    this.setState(prevState => {
+      return { bieren: [] };
+    });
+  }
+
+  alcohol_percentage = (number, bier) => {
+    console.log(number, 'bier=>', bier)
+
+    this.setState((state) => {
+      let index = state.bieren.indexOf(bier)
+      const newAlchol = this.state.bieren.map((bier, i) => {
+        if (i == index) {
+          return {
+            bier: bier.bier,
+            brouwerij: bier.brouwerij,
+            alchol: bier.alchol + number
+          }
+        } else {
+          return bier
+        }
+      })
+      return {
+        bieren: newAlchol
+      }
+    });
+  }
 
   render() { 
     return ( 
@@ -62,9 +96,14 @@ class App extends Component {
         <hr />
         <Form toevoegen={this.bier_toevoegen} />
         <hr />
-        <Bier bierLijst={this.state.bieren} toon={this.state.toon} delete={this.delete_bier} />
+        <Bier 
+          bierLijst={this.state.bieren} 
+          toon={this.state.toon} 
+          onDelete={this.delete_bier}
+          onChange={this.alcohol_percentage} 
+        />
         <hr />
-        <Footer />
+        <Footer onDeleteAll={this.delete_all}/>
       </div>
     );
   }

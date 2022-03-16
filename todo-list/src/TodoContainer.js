@@ -64,8 +64,15 @@ class TodoContainer extends React.Component {
     return (
       <div className="TodoListContainer">
         <TodoInput onSubmit={this.handleAddTodo} />
-        <TodoList onComplete={this.handleCompleteTodo} onDelete={this.handleDeleteTodo} list={this.state.todoItems} />
-        <TodoFooter onClearCompleted={this.handleClearCompleted} onClearAll={this.handleClearTodos} />
+        <TodoList 
+          onComplete={this.handleCompleteTodo} 
+          onDelete={this.handleDeleteTodo} 
+          list={this.state.todoItems} 
+        />
+        <TodoFooter 
+          onClearCompleted={this.handleClearCompleted} 
+          onClearAll={this.handleClearTodos} 
+        />
       </div>
     )
   }

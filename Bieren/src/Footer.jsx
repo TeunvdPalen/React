@@ -8,7 +8,10 @@ class Footer extends Component {
 	render() { 
 		return ( 
 			<div>
-				<p>Copyright 2022</p>
+				<p>
+					Copyright 2022
+					<button onClick={this.props.onDeleteAll}>Verwijderen alle bieren</button>
+				</p>
 			</div>
 		);
 	}

@@ -1,0 +1,37 @@
+.App__AppContainer {
+	background: lightcoral;
+	max-width: 500px;
+	margin: auto;
+	padding: 5px 20px;
+	border-radius: 10px;
+}
+
+.App__Title {
+	color: aqua;
+	transition: all 75ms ease-out;
+}
+
+.App__Title--awesome {
+	color: chartreuse;
+	transform: rotate(2deg);
+}
+
+.input {
+	padding: 5px;
+	border-radius: 5px;
+	margin: 10px 0;
+	display: block;
+	width: 100%;
+	border: 3px solid gray;
+	transition: all 150ms ease-out;
+}
+
+.input.error {
+	background-color: rgb(216, 93, 93);
+	border-color: red;
+}
+
+.input.valid {
+	background-color: green;
+	border-color: greenyellow;
+}

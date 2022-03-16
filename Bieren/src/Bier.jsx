@@ -8,12 +8,30 @@ class Bier extends Component {
 	render() { 
 		return ( 
 			<div>
-				{this.props.bierLijst.map((bier) => {
+				{this.props.bierLijst.map((bier, i) => {
 					return (
-					<div>
-						<h1>{bier.bier} <button onClick={this.props.delete}>Verwijder Bier</button></h1>
+					<div key={i}>
+						<h1>
+							{bier.bier} 
+							<button 
+								onClick={() => this.props.onDelete(bier)}>
+								Verwijder Bier
+							</button>
+						</h1>
 						<p>Brouwerij: {bier.brouwerij}</p>
-						{this.props.toon && <p>Alcholpercentage: <button>-</button> {bier.alchol} <button>+</button> </p>}
+						{this.props.toon && 
+							<p>Alcholpercentage: 
+								<button 
+									onClick={() => this.props.onChange(-1, bier)}>
+									-
+								</button> 
+								{bier.alchol} 
+								<button 
+									onClick={() => this.props.onChange(1, bier)}>
+									+
+								</button> 
+							</p>
+						}
 					</div>
 					)
 				})}

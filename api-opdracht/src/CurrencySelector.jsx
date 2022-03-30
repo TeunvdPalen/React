@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+//  api access 081eba5635083d237f963cb496c049c6
+//  api access 83ec7c5890446bff390e13f29ace47f8
 class CurrencySelector extends Component {
 	state = { 
 		loading: true,
@@ -7,9 +9,22 @@ class CurrencySelector extends Component {
 		currencies: [],
 		fromCurrency: "EUR",
 		toCurrency: "",
+		input: '',
+		uitkomst: 0,
 	}
 
-	// this.state.exchangeRates[this.state.fromCurrency] * this.state.exchangeRates[this.state.toCurrency]
+	handleKeyDown = (e) => {
+		if (e.keyCode === 13) {
+			this.bereken()
+		}
+	}
+
+	bereken = () => {
+		console.log('click')
+		let temp = this.state.exchangeRates[this.state.fromCurrency] * this.state.exchangeRates[this.state.toCurrency]
+		temp = temp * parseInt(this.state.input)
+		this.setState({uitkomst: temp})
+	}
 
 	componentDidMount = () => {
 		this.setState({loading: true})
@@ -34,12 +49,10 @@ class CurrencySelector extends Component {
 
 	onChangeHandlerFrom = (e) => {
 		this.setState({fromCurrency: e.target.value});
-		console.log(this.state.fromCurrency+ ' Onchangefunctie')
 	}
 
 	onChangeHandlerTo = (e) => {
-		this.state.toCurrency =  e.target.value
-		console.log(this.state.toCurrency)
+		this.setState({toCurrency: e.target.value})
 	}
 
 	render() { 
@@ -64,7 +77,13 @@ class CurrencySelector extends Component {
 						})}
 					</select>
 				</p>
-			
+				<div>
+					<input type="text" onKeyDown={this.handleKeyDown} onChange={(e) => this.setState({input:e.target.value})} value={this.state.input}/>
+					<button onClick={this.bereken}> Bereken</button>
+				</div>
+				<p>
+					{this.state.uitkomst}
+				</p>
 			</div>
 		);
 	}

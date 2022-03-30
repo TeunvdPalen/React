@@ -1,20 +1,9 @@
 import React, { Component } from "react";
-import CurrencyAmount from "./CurrencyAmount";
 import CurrencySelector from "./CurrencySelector";
 
 class App extends Component {
 	state = { 
-		amount: 0 
-		// -> rates
-		// ->fromCurrency
-		// ->toCurrency
-		// ->inputNumber
-	}
 
-
-
-	calculate = (value) => {
-		this.amount(value)
 	}
 
 	render() { 
@@ -22,7 +11,6 @@ class App extends Component {
 			<div>
 				<h1>Currency rate converter</h1>
 				<CurrencySelector />
-				<CurrencyAmount onclick={this.calculate}/>
 			</div>
 		);
 	}

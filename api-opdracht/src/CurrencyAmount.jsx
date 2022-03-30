@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 //  api access 081eba5635083d237f963cb496c049c6
+//  api access 83ec7c5890446bff390e13f29ace47f8
 
 
 class CurrencyAmount extends Component {

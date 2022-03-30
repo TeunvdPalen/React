@@ -3,7 +3,13 @@ import CurrencyAmount from "./CurrencyAmount";
 import CurrencySelector from "./CurrencySelector";
 
 class App extends Component {
-	state = { amount: 0 }
+	state = { 
+		amount: 0 
+		// -> rates
+		// ->fromCurrency
+		// ->toCurrency
+		// ->inputNumber
+	}
 
 
 

@@ -1,0 +1,29 @@
+.Alert {
+	background-color: tomato;
+	border: 3px solid lawngreen;
+	color: black;
+	box-shadow: 0 0 10px rgba(207, 87, 7, 0.5);
+	border-radius: 15px;
+	padding: 10px;
+	margin: 10px 0;
+}
+
+.Alert b {
+	margin: 0 10px;
+}
+
+.Alert-success {
+	background-color: green;
+	border: 3px solid magenta;
+	color: black;
+	box-shadow: 0 0 10px rgba(157, 25, 184, 0.5);
+
+}
+
+.Alert-danger {
+	background-color: palevioletred;
+	border: 3px solid darkred;
+	color: black;
+	box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+
+}

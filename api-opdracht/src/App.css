@@ -1,0 +1,38 @@
+body {
+	margin: 0;
+}
+.currency-select {
+	margin: 0 1rem;
+}
+
+.container {
+	margin: 0;
+	padding: 3rem 0;
+	width: 800px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: turquoise;
+}
+
+.container h1 {
+	margin-top: 0;
+}
+
+.currency-amount {
+	margin-left: 0.7rem;
+}
+
+.error {
+	color: red;
+	margin-top: 0.4rem;
+	font-size: 1.2rem;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.result {
+	font-size: xx-large;
+	font-weight: bold;
+}

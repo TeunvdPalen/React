@@ -7,10 +7,11 @@ class CurrencySelector extends Component {
 		loading: true,
 		exchangeRates: [],
 		currencies: [],
-		fromCurrency: "EUR",
+		fromCurrency: "",
 		toCurrency: "",
 		input: '',
 		uitkomst: 0,
+		error: ""
 	}
 
 	handleKeyDown = (e) => {
@@ -21,9 +22,14 @@ class CurrencySelector extends Component {
 
 	bereken = () => {
 		console.log('click')
-		let temp = this.state.exchangeRates[this.state.fromCurrency] * this.state.exchangeRates[this.state.toCurrency]
-		temp = temp * parseInt(this.state.input)
+		if (this.state.input > 0) {
+			let temp = this.state.exchangeRates[this.state.fromCurrency] * this.state.exchangeRates[this.state.toCurrency]
+		temp = Math.floor((temp * parseInt(this.state.input))*100 ) / 100
 		this.setState({uitkomst: temp})
+		this.setState({error: ""})
+		} else {
+			this.setState({error: "Put in a value"})
+		}
 	}
 
 	componentDidMount = () => {
@@ -63,14 +69,14 @@ class CurrencySelector extends Component {
 			<div>
 				<p>
 					Converts rates from
-					<select onChange={this.onChangeHandlerFrom} defaultValue="0">
+					<select className='currency-select' onChange={this.onChangeHandlerFrom} defaultValue="0">
 						<option value="0" disabled>Select currency 1</option>
 						{this.state.currencies.map((valuta, i) => {
 							return <option key={i} value={valuta}>{valuta}</option>
 						})}
 					</select>
 					to
-					<select onChange={this.onChangeHandlerTo} defaultValue="0">
+					<select className='currency-select' onChange={this.onChangeHandlerTo} defaultValue="0">
 						<option value="0" disabled>Select currency 2</option>
 						{this.state.currencies.map((valuta, i) => {
 							return <option key={i} value={valuta}>{valuta}</option>
@@ -78,11 +84,14 @@ class CurrencySelector extends Component {
 					</select>
 				</p>
 				<div>
-					<input type="text" onKeyDown={this.handleKeyDown} onChange={(e) => this.setState({input:e.target.value})} value={this.state.input}/>
+					<label className='bold'> {this.state.fromCurrency}
+					<input type="number" className='currency-amount' onKeyDown={this.handleKeyDown} onChange={(e) => this.setState({input:e.target.value})} value={this.state.input}/>
+					</label>
 					<button onClick={this.bereken}> Bereken</button>
+					<p className='error'>{this.state.error}</p>
 				</div>
-				<p>
-					{this.state.uitkomst}
+				<p className='result'>
+					{this.state.uitkomst}  {this.state.toCurrency}
 				</p>
 			</div>
 		);

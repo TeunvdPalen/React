@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import CurrencySelector from "./CurrencySelector";
-
+import './App.css';
 class App extends Component {
 	state = { 
 
@@ -8,7 +8,7 @@ class App extends Component {
 
 	render() { 
 		return ( 
-			<div>
+			<div className="container">
 				<h1>Currency rate converter</h1>
 				<CurrencySelector />
 			</div>

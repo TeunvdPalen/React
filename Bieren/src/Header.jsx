@@ -5,14 +5,16 @@ class Header extends Component {
 		super(props);
 	}
 
-	state = {  }
+	state = {};
 
-	render() { 
-		return ( 
+	render() {
+		return (
 			<div>
-				<h1>Bieren</h1>
-				<h2>Er zijn veel bieren in België.</h2>
-				<button onClick={this.props.toggle}>Toon alcoholpercentage</button>
+				<h1 className='text-2xl font-bold'>Bieren</h1>
+				<h2 className='text-xl'>Er zijn veel bieren in België.</h2>
+				<button className='focus:ring' onClick={this.props.toggle}>
+					Toon alcoholpercentage
+				</button>
 			</div>
 		);
 	}

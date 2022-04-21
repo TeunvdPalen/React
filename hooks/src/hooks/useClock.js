@@ -1,14 +1,15 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function useClock() {
-	const [time, setTime] = useState(Date())
+    const [time, setTime] = useState(Date())
 
-	useEffect(() => {
-		let timer = setInterval(()=> setTime(Date()), 1000)
-		return () => clearInterval(timer)
-	})
-	
-	return time
+    useEffect(() => {
+        let timer = setInterval(() => setTime(Date()), 1000)
+        return () => clearInterval(timer)
+    })
+
+    return time
+
 }
 
 export default useClock;

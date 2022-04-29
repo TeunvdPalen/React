@@ -11,9 +11,9 @@ function Items() {
 			<div>
 				{categorieen.map((categorie, itemIndex) => 
 				<div key={itemIndex}>
-					<h1 className='text-2xl'>{categorie.naam}</h1>
+					<h1 className='text-4xl font-bold'>{categorie.naam}</h1>
 					<div>
-						{categorie.producten.map((item, itemIndex) => <Item key={itemIndex} naam={item.naam} prijs={item.prijs} saus={item.sauskeuze} index={itemIndex} />)}
+						{categorie.producten.map((item, itemIndex) => <Item key={itemIndex} naam={item.naam} prijs={item.prijs} sausWaarde={item.sauskeuze} index={itemIndex} />)}
 					</div>
 				</div>
 				)}

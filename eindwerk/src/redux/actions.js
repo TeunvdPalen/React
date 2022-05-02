@@ -7,8 +7,8 @@ export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
 // action creators
 
-export function addToCart(index, naam, prijs, saus) {
-	return { type: ADD_TO_CART, index, naam, prijs, saus}
+export function addToCart(naam, prijs, sausWaarde, saus, aantal) {
+	return { type: ADD_TO_CART, naam, prijs, sausWaarde, saus, aantal}
 }
 
 export function removeFromCart(index) {

@@ -4,7 +4,7 @@ import {
 } from './actions'
 
 const initialState = {
-	cart: ['']
+	cart: [],
 }
 
 function snackApp(state=initialState, action) {
@@ -15,8 +15,10 @@ function snackApp(state=initialState, action) {
 				...state.cart,
 				{
 					naam: action.naam,
-					prijs: action.prijs,
+					prijs: parseInt(action.prijs),
+					sausWaarde: action.sausWaarde,
 					saus: action.saus,
+					aantal: action.aantal
 				}
 			]
 		}
@@ -25,7 +27,7 @@ function snackApp(state=initialState, action) {
 	if (action.type === REMOVE_FROM_CART) {
 		return {
 			...state,
-			cart: state.weights.filter((item, itemIndex) => itemIndex !== action.index)
+			cart: state.cart.filter((item, itemIndex) => itemIndex !== action.index)
 		}
 	}
 
